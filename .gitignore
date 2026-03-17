@@ -1,0 +1,15 @@
+# Virtual environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+pyvenv.cfg
+
+# Logs and runtime files
+*.log
+*.pid
+
+# OS junk
+.DS_Store
