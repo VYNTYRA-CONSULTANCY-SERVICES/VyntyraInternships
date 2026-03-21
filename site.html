@@ -1137,253 +1137,201 @@ img {
 
 /* Footer */
 #main-footer {
-    background: linear-gradient(180deg, #050507 0%, #07090f 45%, #05080f 100%);
-    color: #a0a0a0;
-    padding: 80px 0 0;
-    font-size: 0.95rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, #020205, #020309 70%, #030510);
+    color: #a8a8a8;
+    padding: 0 0 40px;
     position: relative;
     overflow: hidden;
 }
 
-#main-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
-    opacity: 0.5;
-}
-
-#main-footer::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 80% 10%, rgba(247, 194, 104, 0.4), transparent 40%), radial-gradient(circle at 18% 70%, rgba(77, 171, 247, 0.3), transparent 40%);
-    opacity: 0.85;
-    pointer-events: none;
-    z-index: 0;
-}
-
-#main-footer .container.footer-grid,
-#main-footer .footer-bottom .container {
+#main-footer .container {
     position: relative;
     z-index: 1;
 }
 
+.footer-glow {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 15% 20%, rgba(247, 194, 104, 0.35), transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(77, 171, 247, 0.3), transparent 50%),
+        linear-gradient(180deg, rgba(3, 3, 5, 0.6), rgba(3, 3, 5, 0.95));
+    opacity: 0.85;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.footer-cta {
+    margin: 60px 0 40px;
+    padding: 50px;
+    border-radius: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(4, 8, 20, 0.9), rgba(9, 10, 25, 0.85));
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-cta h3 {
+    font-size: clamp(1.9rem, 2.4vw, 2.5rem);
+    color: #fff;
+    margin: 0;
+}
+
+.footer-cta p {
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 600px;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-actions .btn {
+    min-width: 180px;
+}
+
+.cta-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-meta strong {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cta-meta a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr 1.2fr 0.8fr;
-    gap: 50px;
-    margin-bottom: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    padding-bottom: 40px;
 }
 
 .footer-col h4 {
     color: #fff;
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 1.4rem;
     font-weight: 700;
-    position: relative;
-    display: inline-block;
 }
 
-.footer-col h4::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background: var(--color-secondary);
-    border-radius: 2px;
-}
-
-/* Brand Column */
-.footer-logo {
-    max-width: 180px;
-    margin-bottom: 25px;
-    display: block;
-    background: none;
+.footer-col ul {
+    list-style: none;
     padding: 0;
-    border-radius: 0;
-    border: none;
+    margin: 0;
+    display: grid;
+    gap: 0.7rem;
 }
 
-.header-logo {
-    max-height: 60px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 8px 15px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(77, 171, 247, 0.3);
-    width: auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.footer-col li {
+    font-size: 0.95rem;
 }
 
-.header-logo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(77, 171, 247, 0.6);
+.footer-col a {
+    color: #b7b7b7;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: #fff;
+    transform: translateX(3px);
 }
 
 .footer-desc {
     margin-bottom: 30px;
-    line-height: 1.8;
-    color: #b0b0b0;
+    line-height: 1.7;
 }
 
 .social-icons {
     display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 12px;
+    margin-bottom: 25px;
 }
 
 .social-icons a {
-    display: flex;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
     color: #fff;
-    border-radius: 10px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .social-icons a:hover {
     background: var(--color-secondary);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(77, 171, 247, 0.3);
-    border-color: var(--color-secondary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(77, 171, 247, 0.35);
 }
 
-.google-play-btn img {
-    height: 45px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.google-play-btn img:hover {
-    transform: scale(1.05);
-}
-
-/* Links Column */
-.links-wrapper {
+.contact-meta-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Changed to single column for better readability in this layout */
-    gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1rem;
 }
 
-.links-wrapper ul, .legal-col ul {
-    list-style: none;
-    padding: 0;
-}
-
-.links-wrapper li, .legal-col li {
-    margin-bottom: 15px;
-}
-
-.links-wrapper a, .legal-col a {
-    color: #b0b0b0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-.links-wrapper a i, .legal-col a i {
-    color: var(--color-secondary);
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
-    width: 20px; /* Fixed width for alignment */
-    text-align: center;
-}
-
-.links-wrapper a:hover, .legal-col a:hover {
+.contact-meta-grid strong {
+    display: block;
     color: #fff;
-    transform: translateX(5px);
+    font-size: 0.9rem;
+    margin-bottom: 4px;
 }
 
-.links-wrapper a:hover i, .legal-col a:hover i {
-    transform: translateX(3px);
-}
-
-/* Contact Column */
-.contact-item {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.contact-item strong {
-    color: #fff;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.contact-item strong i {
-    color: var(--color-secondary);
-}
-
-.contact-item a {
-    color: #b0b0b0;
-    text-decoration: none;
-    transition: color 0.3s;
-    padding-left: 0; /* Removed padding as structure changed */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.contact-item a i {
-    color: var(--color-secondary);
-    width: 20px;
-    text-align: center;
-}
-
-.contact-item a:hover {
-    color: var(--color-secondary);
+.contact-meta-grid a {
+    color: #c7c7c7;
+    font-size: 0.9rem;
 }
 
 .contact-item.address {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 15px;
-    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .contact-item.address i {
     color: var(--color-secondary);
-    margin-top: 5px;
-    flex-shrink: 0;
+    margin-top: 4px;
 }
 
 .contact-item.address p {
     margin: 0;
     line-height: 1.6;
-    color: #b0b0b0;
+    color: #c0c0c0;
+    font-size: 0.9rem;
 }
+
 .map-container {
-    margin-top: 25px;
-    border-radius: 10px;
+    margin-top: 10px;
+    border-radius: 14px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+    min-height: 180px;
 }
 
 .map-container iframe {
-    display: block;
-    filter: grayscale(100%) invert(90%);
-    opacity: 0.8;
-    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(100%) contrast(0.9);
+    opacity: 0.85;
+    transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .map-container iframe:hover {
@@ -1391,46 +1339,59 @@ img {
     opacity: 1;
 }
 
-/* Footer Bottom */
 .footer-bottom {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 25px 0;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.bottom-flex {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 12px;
 }
 
-.bottom-flex p {
+.footer-bottom-copy p {
     margin: 0;
+    color: #bfbfbf;
     font-size: 0.9rem;
-    color: #888;
 }
 
-/* Responsive Footer */
-@media (max-width: 1024px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
+.footer-bottom-links {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+}
+
+.footer-bottom-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Responsive */
+@media (max-width: 900px) {
+    .footer-cta {
+        padding: 35px;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-meta {
+        flex-direction: column;
     }
 }
 
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+@media (max-width: 640px) {
+    .footer-cta {
+        padding: 30px;
     }
-    
-    .links-wrapper {
-        grid-template-columns: 1fr;
-    }
-    
-    .bottom-flex {
+
+    .footer-bottom {
         flex-direction: column;
         text-align: center;
     }
@@ -1532,40 +1493,30 @@ img {
         scroll-snap-align: center;
     }
 
-    /* Footer */
+    /* Footer tweaks */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 40px;
-        text-align: center; /* Center align footer on mobile */
     }
 
-    .footer-col h4::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .footer-logo {
-        margin: 0 auto 25px;
+    .footer-cta {
+        margin-top: 40px;
     }
 
     .social-icons {
         justify-content: center;
     }
 
-    .contact-item, .contact-item.address {
-        align-items: center;
-        text-align: center;
-    }
-    
-    .contact-item.address {
-        flex-direction: column;
+    .contact-meta-grid {
+        grid-template-columns: 1fr;
     }
 
-    .links-wrapper {
+    .contact-item.address {
+        flex-direction: column;
         text-align: center;
     }
-    
-    .links-wrapper a {
+
+    .footer-bottom-links {
         justify-content: center;
     }
 
@@ -5023,88 +4974,120 @@ img {
 
     <!-- Footer -->
     <footer id="main-footer">
+        <div class="footer-glow"></div>
+        <div class="container footer-cta">
+            <div>
+                <p class="eyebrow">Ready for your next leap?</p>
+                <h3>Partner with Vyntyra to build products, brands, and experiences that feel inevitable.</h3>
+                <p>We combine digital research, creative craft, and technology delivery to help founders, product teams, and learners move from idea to impact faster.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="#contact" class="btn btn-primary">Book a strategy call</a>
+                <a href="mailto:contactus@vyntyraconsultancyservices.in" class="btn btn-outline">Send a project brief</a>
+            </div>
+            <div class="cta-meta">
+                <div>
+                    <strong>Call or WhatsApp</strong>
+                    <a href="tel:+919390515106">+91 93905 15106</a>
+                </div>
+                <div>
+                    <strong>Support</strong>
+                    <a href="mailto:sales@vyntyraconsultancyservices.in">sales@vyntyraconsultancyservices.in</a>
+                </div>
+            </div>
+        </div>
+
         <div class="container footer-grid">
-            <!-- Column 1: Brand & Social -->
             <div class="footer-col brand-col">
                 <img src="logo.png" alt="Vyntyra Logo" class="footer-logo" loading="lazy">
-                <p class="footer-desc">We connect talent with Opportunities and elevate brand identities with strategic creativity. Our transformative digital education, smart marketing strategies, and innovative research ensure that our solutions make a meaningful impact.</p>
+                <p class="footer-desc">We connect talent with opportunities and elevate brands through strategic creativity, digital education, and research.</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/vyntyra" aria-label="Facebook" target="_blank" rel="noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/vyntyra" aria-label="Twitter" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/vyntyra" aria-label="LinkedIn" target="_blank" rel="noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/vyntyra" aria-label="Instagram" target="_blank" rel="noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@vyntyra" aria-label="YouTube" target="_blank" rel="noreferrer"><i class="fab fa-youtube"></i></a>
                 </div>
-
-                    <div class="msme-badge">
-                        <img src="https://www.sanskriti.edu.in/webimg/btech-in-collaboration.jpg" alt="Official MSME Logo" class="msme-logo" loading="lazy" height="60">
-                        <div>
-                            <strong>Registered under MSME</strong>
-                            <p>Udyam Registered: UDYAM-AP-09-0051886 </p>
-                            <p>MSME-DFO: VISAKHAPATNAM </p>
-                            <p>Date of Incorporation: 07/09/2024 </p>
-                        </div>
+                <div class="msme-badge">
+                    <img src="https://www.sanskriti.edu.in/webimg/btech-in-collaboration.jpg" alt="Official MSME Logo" class="msme-logo" loading="lazy" height="60">
+                    <div>
+                        <strong>Registered under MSME</strong>
+                        <p>Udyam Registered: UDYAM-AP-09-0051886</p>
+                        <p>MSME-DFO: VISAKHAPATNAM</p>
+                        <p>Date of Incorporation: 07/09/2024</p>
                     </div>
-
-        
-            </div>
-
-            <!-- Column 2: Quick Links (2 sub-columns) -->
-            <div class="footer-col links-col">
-                <h4>Quick Links</h4>
-                <div class="links-wrapper">
-                    <ul>
-                        <li><a href="https://workshops-vyntyraacademy.netlify.app/"><i class="fas fa-globe"></i> Vyntyra Academy Workshops </a></li>
-                        <li><a href="#Clients"><i class="fas fa-file-alt"></i> Clients</a></li>
-                        <li><a href="#About Us"><i class="fas fa-user-tie"></i> Leadership</a></li>
-                        <li><a href="#Success Stories"><i class="fas fa-trophy"></i> Achievements</a></li>
-                    </ul>
                 </div>
             </div>
 
-            <!-- Column 3: Contact & Address -->
-            <div class="footer-col contact-col">
-                <h4>Contact & Address</h4>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>For General Inquiry:</strong>
-                        <a href="mailto:support@vyntyraconsultancyservices.in"><i class="fas fa-envelope"></i> Enquiry Email</a>
+            <div class="footer-col nav-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#team">About Our Team</a></li>
+                    <li><a href="#academy">Our Services</a></li>
+                    <li><a href="#stories">Success Stories</a></li>
+                    <li><a href="https://vyntyraacademy.com/">Vyntyra Academy</a></li>
+                    <li><a href="https://workshops-vyntyraacademy.netlify.app/">Workshops</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#social-media">Social Media</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col resources-col">
+                <h4>Programs & Resources</h4>
+                <ul>
+                    <li><a href="#collaboration"><i class="fas fa-handshake"></i> Collaborative Projects</a></li>
+                    <li><a href="#clients"><i class="fas fa-building"></i> Clients</a></li>
+                    <li><a href="#stories"><i class="fas fa-trophy"></i> Success Stories</a></li>
+                    <li><a href="#news"><i class="fas fa-bullhorn"></i> Stories & Announcements</a></li>
+                    <li><a href="#insights"><i class="fas fa-newspaper"></i> Industry Insights</a></li>
+                    <li><a href="#careers"><i class="fas fa-briefcase"></i> Careers & Internships</a></li>
+                    <li><a href="#portfolio"><i class="fas fa-folder-open"></i> Portfolio Reviews</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Book a Consultation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col support-col">
+                <h4>Contact & Presence</h4>
+                <div class="contact-meta-grid">
+                    <div>
+                        <strong>General Enquiry</strong>
+                        <a href="mailto:support@vyntyraconsultancyservices.in">support@vyntyraconsultancyservices.in</a>
                     </div>
-                    <div class="contact-item">
-                        <strong>For Support & Queries:</strong>
-                        <a href="mailto:sales@vyntyraconsultancyservices.in"><i class="fas fa-envelope"></i> Support Email</a>
+                    <div>
+                        <strong>Support & Queries</strong>
+                        <a href="mailto:sales@vyntyraconsultancyservices.in">sales@vyntyraconsultancyservices.in</a>
                     </div>
-                    <div class="contact-item">
-                        <strong>Call:</strong>
-                        <a href="tel:+919390515106"><i class="fas fa-phone-alt"></i> Official Phone</a>
+                    <div>
+                        <strong>Phone</strong>
+                        <a href="tel:+919390515106">+91 93905 15106</a>
                     </div>
-                    <div class="contact-item address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Vyntyra Consultancy Services Pvt. Ltd. Unit no 601, 5th Floor, Grand Palace, Plot no 238 & 239, Dwaraka Nagar, Visakhapatnam, Andhra Pradesh 530016</p>
+                    <div>
+                        <strong>Office</strong>
+                        <a href="https://www.google.com/maps/place/Vyntyra+Consultancy+Services" target="_blank" rel="noreferrer">Plot 238 & 239, Grand Palace, Dwaraka Nagar, Visakhapatnam</a>
                     </div>
+                </div>
+                <div class="contact-item address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Vyntyra Consultancy Services Pvt. Ltd. Unit no 601, 5th Floor, Grand Palace, Plot no 238 & 239, Dwaraka Nagar, Visakhapatnam, Andhra Pradesh 530016</p>
                 </div>
                 <div class="map-container">
-                    <!-- Placeholder for Google Map -->
-                   <iframe src="https://storage.googleapis.com/maps-solutions-g2bc8c5hd2/locator-plus/i995/locator-plus.html" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+                    <iframe src="https://storage.googleapis.com/maps-solutions-g2bc8c5hd2/locator-plus/i995/locator-plus.html" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer"></iframe>
                 </div>
-            </div>
-
-            <!-- Column 4: Legal -->
-            <div class="footer-col legal-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#"><i class="fas fa-file-contract"></i> Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-gavel"></i> Terms of Service</a></li>
-                    <li><a href="#"><i class="fas fa-cookie-bite"></i> Cookie Policy</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i> Acceptable Use Policy</a></li>
-                </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <div class="container bottom-flex">
+            <div class="footer-bottom-copy">
                 <p>&copy; 2025 Vyntyra Consultancy Services. All rights reserved.</p>
-                <div>Developed & Designed by Vyntyra Consultancy Services Pvt. Ltd</div>
+                <p>Crafted & maintained by Vyntyra Consultancy Services Pvt. Ltd.</p>
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Acceptable Use Policy</a>
             </div>
         </div>
     </footer>

@@ -2,7 +2,7 @@ from pathlib import Path
 
 workspace = Path("c:/Users/Jamia/Vyntyra Academy")
 index_path = workspace / "index.html"
-style_path = workspace / "style.css"
+style_path = workspace / "assets" / "css" / "premium-style.css"
 
 index_text = index_path.read_text(encoding="utf-8")
 style_text = style_path.read_text(encoding="utf-8")
